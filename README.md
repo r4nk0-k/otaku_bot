@@ -41,7 +41,18 @@
     - `dpkg -i packages-microsoft-prod.deb`
     - `sudo apt update; sudo apt upgrade`
     - `sudo apt-get install -y dotnet-runtime-3.1`
-    - `curl -s https://packagecloud.io/install/repositories/arkane-systems/wsl-translinux/script.deb`
+    - `wget -O /etc/apt/trusted.gpg.d/wsl-transdebian.gpg https://arkane-systems.github.io/wsl-transdebian/apt/wsl-transdebian.gpg`
+    - `chmod a+r /etc/apt/trusted.gpg.d/wsl-transdebian.gpg`
+    - `chmod 777 /etc/apt/sources.list.d/`
+
+    - ``` 
+        cat << EOF > /etc/apt/sources.list.d/wsl-transdebian.list
+        deb https://arkane-systems.github.io/wsl-transdebian/apt/ $(lsb_release -cs) main
+        deb-src https://arkane-systems.github.io/wsl-transdebian/apt/ $(lsb_release -cs) main
+        EOF
+        ```
+
+    - `apt update`
     - `sudo apt install -y systemd-genie`
 
 ## dockerの使い方
