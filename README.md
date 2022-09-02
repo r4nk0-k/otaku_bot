@@ -44,6 +44,25 @@
     - `curl -s https://packagecloud.io/install/repositories/arkane-systems/wsl-translinux/script.deb`
     - `sudo apt install -y systemd-genie`
 
+## dockerの使い方
+- `docker build -t name:tag [dirname]`
+    - dockerfileをビルドしてイメージを作る。Dockerfileに記載された内容を実行するイメージを作成
+    - `-t`: タグ付け、名前をつける。tagは省略可能。
+        - `-t hoge_image:latest`, `-t hoge_image`
+    - `[dirname]`: dockerfileがあるディレクトリ、自分の今いるところなら`.`
+        - ファイル名はDockerfileじゃないとダメ、別の名前のDockerfileを指定したいときは`-f filename`
+        - `docker build .`, `docker build hoge/`
+    - `docker build -t go_image .`
+
+- イメージができたら、イメージをもとにしてコンテナの起動
+    - `docker image ls`
+        - イメージの一覧を表示して、作成したイメージがあることを確認
+    - `docker run [imagename]`
+        - `docker run go_image`
+    - `docker ps`
+        - 起動しているコンテナの確認、今回チュートリアルように用意したgoファイルでは即終了するため何も表示されない
+    - `docker ps -a`
+        - アクティブなコンテナを全て表示、停止中のコンテナも表示される
 
 ## gitの使い方
 - https://tech-blog.rakus.co.jp/entry/20200529/git
