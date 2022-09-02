@@ -37,7 +37,8 @@
 
 - genieのインストール(wsl内)
     - `sudo apt install -y daemonize dbus policykit-1`
-    - `wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb dpkg -i packages-microsoft-prod.deb`
+    - `wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb`
+    - `dpkg -i packages-microsoft-prod.deb`
     - `sudo apt update; sudo apt upgrade`
     - `sudo apt-get install -y dotnet-runtime-3.1`
     - `curl -s https://packagecloud.io/install/repositories/arkane-systems/wsl-translinux/script.deb`
